@@ -30,6 +30,7 @@ public class LoginWelcomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        User u = (User) request.getSession().getAttribute("user");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -38,7 +39,7 @@ public class LoginWelcomeServlet extends HttpServlet {
             out.println("<title>Servlet LoginWelcomeServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginWelcomeServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Bienvenido " + u.getUsername() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

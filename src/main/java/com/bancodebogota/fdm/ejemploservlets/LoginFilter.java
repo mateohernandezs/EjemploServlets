@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -106,12 +107,14 @@ public class LoginFilter implements Filter {
         doBeforeProcessing(request, response);
         HttpServletRequest req = (HttpServletRequest) request;
         
+        HttpServletResponse res = (HttpServletResponse) response;
         
         User u = (User) req.getSession().getAttribute("user");
         if (u==null) {
-            
+            //System.out.println("No loggeado");
+            //res.sendRedirect("/EjemploServlets/LoginServlet");
         }else{
-            System.out.println("Loggeado");
+         //   res.sendRedirect("WelcomeServlet");
         }
         
         

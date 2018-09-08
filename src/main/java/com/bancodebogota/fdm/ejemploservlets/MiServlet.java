@@ -71,6 +71,7 @@ public class MiServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         System.out.println("******" + request.getParameter("nombre")+"********");
         processRequest(request, response);
         

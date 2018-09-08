@@ -32,6 +32,15 @@
         <servlet-name>WelcomeServlet</servlet-name>
         <url-pattern>/WelcomeServlet</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>com.bancodebogota.fdm.config.ConfigAppStartupListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.bancodebogota.fdm.config.HibernateServletContextListener</listener-class>
+    </listener>
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>

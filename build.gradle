@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+
+group = 'com.bancodebogota.fdm'
+version = '1.0-SNAPSHOT'
+
+description = """EjemploServlets"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+     jcenter()
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+	def tomcatVersion = '8.0.42'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"	
+    compile group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version:'1.2'
+    compile group: 'taglibs', name: 'standard', version:'1.1.2'
+    compile group: 'org.apache.struts', name: 'struts2-core', version:'2.5.14.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.10.0'
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version:'2.5.0'
+    compile group: 'mysql', name: 'mysql-connector-java', version:'6.0.3'
+    compile group: 'org.apache.struts', name: 'struts2-tiles-plugin', version:'2.5.17'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'5.3.6.Final'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version:'1.0.2.Final'
+    compile group: 'org.modelmapper', name: 'modelmapper', version:'2.1.1'
+    providedCompile group: 'javax', name: 'javaee-web-api', version:'7.0'
+}
+
+
+
+
+
+
